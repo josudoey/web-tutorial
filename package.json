@@ -1,28 +1,26 @@
 {
   "name": "web-tutorial",
-  "private": "true",
+  "private": true,
   "type": "module",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ."
   },
   "keywords": [],
   "author": "Joey Fang",
   "license": "ISC",
   "packageManager": "pnpm@10.6.5",
   "devDependencies": {
-    "@eslint/eslintrc": "^3.3.1",
-    "@eslint/js": "^9.28.0",
-    "@tsconfig/node18": "^18.2.4",
-    "@typescript-eslint/eslint-plugin": "^8.33.1",
-    "eslint": "^9.28.0",
+    "@eslint/eslintrc": "^3",
+    "eslint": "^9.18.0",
+    "eslint-config-prettier": "^10.1.5",
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-n": "^17.19.0",
     "eslint-plugin-promise": "^7.2.1",
-    "typescript": "^5.8.3",
-    "typescript-eslint": "^8.33.1"
+    "typescript": "^5.8.3"
   }
 }

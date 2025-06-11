@@ -1,20 +1,14 @@
-import { FlatCompat } from '@eslint/eslintrc'
-import tseslint from 'typescript-eslint'
-import js from '@eslint/js'
-import path from 'path'
-import { fileURLToPath } from 'url'
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+import { FlatCompat } from "@eslint/eslintrc";
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const compat = new FlatCompat({
-  baseDirectory: __dirname, // optional; default: process.cwd()
-  resolvePluginsRelativeTo: __dirname, // optional
-  recommendedConfig: js.configs.recommended, // optional unless you're using "eslint:recommended"
-  allConfig: js.configs.all // optional unless you're using "eslint:all"
-})
+  baseDirectory: __dirname,
+});
 
-export default [
-  ...compat.extends('standard'),
-  ...tseslint.configs.recommended
-]
+const eslintConfig = [...compat.extends("standard", "prettier")];
+
+export default eslintConfig;
