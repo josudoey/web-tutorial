@@ -1,4 +1,0 @@
-{
-    // https://github.com/tsconfig/bases?tab=readme-ov-file#node-18-tsconfigjson
-    "extends": "@tsconfig/node18/tsconfig.json"
-}
