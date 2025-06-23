@@ -1,16 +1,15 @@
-# React Flowbite Basic
+# React Basic
 
-This is a basic React project template using Next.js with TypeScript and Flowbite React UI components.
+This is a basic React project template using Next.js with TypeScript and Tailwind CSS.
 
 ## Features
 
 - 🚀 Based on Next.js 15+ App Router
-- 🎨 Integrated Flowbite React UI components
-- 📱 Responsive Design with Tailwind CSS
+- 🎨 Integrated Tailwind CSS 4.x
+- 📱 Responsive Design
 - 🎯 TypeScript Support
 - 🔧 Modern Development Toolchain
-- ⚡ Fast development with Next.js
-- 🎨 Beautiful UI components from Flowbite
+- ⚡ Turbopack for faster development
 
 ## Prerequisites
 
@@ -43,32 +42,21 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ### Available Scripts
 
-- `pnpm dev` - Start development server
+- `pnpm dev` - Start development server with Turbopack
 - `pnpm build` - Build the application for production
 - `pnpm start` - Start the production server
 - `pnpm lint` - Run ESLint to check code quality
-- `pnpm format` - Format code with Prettier
-- `pnpm format:check` - Check code formatting
 
 ## Project Structure
 
 ```
-react-flowbite-basic/
+react-basic/
 ├── app/                 # Next.js App Router pages
+│   ├── favicon.ico
 │   ├── globals.css      # Global styles
 │   ├── layout.tsx       # Root layout component
 │   └── page.tsx         # Home page
-├── components/          # Reusable UI components
-│   ├── navbar.tsx       # Navigation bar component
-│   └── sidebar.tsx      # Sidebar component
 ├── public/              # Static assets
-│   ├── figma.svg
-│   ├── flowbite-react.svg
-│   ├── flowbite.svg
-│   ├── pattern-dark.svg
-│   ├── pattern-light.svg
-│   └── vercel.svg
-├── .flowbite-react/     # Flowbite React configuration
 ├── eslint.config.mjs    # ESLint configuration
 ├── next.config.ts       # Next.js configuration
 ├── package.json         # Dependencies and scripts
@@ -79,24 +67,13 @@ react-flowbite-basic/
 
 ## Tech Stack
 
-- **Framework**: Next.js 15.3.0
+- **Framework**: Next.js 15.3.3
 - **Language**: TypeScript 5.x
-- **UI Library**: Flowbite React 0.11.7
 - **Styling**: Tailwind CSS 4.x
-- **Icons**: React Icons 5.5.0
 - **Package Manager**: pnpm (recommended)
-- **Linting**: ESLint with Next.js config
-- **Code Formatting**: Prettier with Tailwind CSS plugin
-
-## Flowbite React Components
-
-This project includes several pre-built Flowbite React components:
-
-- **Navbar**: Responsive navigation bar with mobile menu
-- **Sidebar**: Collapsible sidebar with navigation links
-- **Buttons**: Various button styles and variants
-- **Cards**: Content cards with different layouts
-- **Icons**: React Icons integration
+- **Linting**: ESLint with standard config
+- **Code Formatting**: Prettier
+- **Development**: Turbopack for faster builds
 
 ## Learn More
 
@@ -104,7 +81,6 @@ To learn more about the technologies used in this project:
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API
 - [React Documentation](https://react.dev/) - learn about React
-- [Flowbite React Documentation](https://flowbite-react.com/) - learn about Flowbite React components
 - [Tailwind CSS Documentation](https://tailwindcss.com/docs) - learn about Tailwind CSS
 - [TypeScript Documentation](https://www.typescriptlang.org/docs/) - learn about TypeScript
 
