@@ -1,5 +1,4 @@
 'use client'
-
 import { useCounterStore } from '@/store/counter'
 
 export default function Home() {
