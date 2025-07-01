@@ -1,25 +1,25 @@
-import { ThemeModeScript } from "flowbite-react";
-import Navbar from "@/components/navbar";
-import Sidebar from "@/components/sidebar";
-import "./globals.css";
+import { ThemeModeScript } from 'flowbite-react'
+import Navbar from '@/components/navbar'
+import Sidebar from '@/components/sidebar'
+import './globals.css'
 
 export default function RootLayout({
-  children,
+  children
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang='en' suppressHydrationWarning>
       <head>
         <ThemeModeScript />
       </head>
       <body>
         <Navbar />
-        <div className="flex items-start">
+        <div className='flex items-start'>
           <Sidebar />
           {children}
         </div>
       </body>
     </html>
-  );
+  )
 }
