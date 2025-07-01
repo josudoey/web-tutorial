@@ -1,1 +1,1 @@
-GEMINI.md
+.cursor/rules/context.mdc
