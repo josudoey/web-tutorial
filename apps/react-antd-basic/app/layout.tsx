@@ -9,7 +9,6 @@ import {
 } from '@ant-design/icons'
 import type { MenuProps } from 'antd'
 import { Flex, Breadcrumb, Layout, Menu, theme, ConfigProvider } from 'antd'
-
 const { Header, Content, Sider } = Layout
 
 const items1: MenuProps['items'] = ['1', '2', '3'].map((key) => ({
@@ -68,11 +67,14 @@ export default function RootLayout({
             <Layout>
               <Header style={{ display: 'flex', alignItems: 'center' }}>
                 <div>
-                  <img
-                    src='https://josudoey.github.io/img/logo.png'
-                    className='mr-3 h-6 sm:h-9'
-                    alt='Logo'
-                  />
+                  {
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src='https://josudoey.github.io/img/logo.png'
+                      className='mr-3 h-6 sm:h-9'
+                      alt='Logo'
+                    />
+                  }
                 </div>
                 <Menu
                   mode='horizontal'
