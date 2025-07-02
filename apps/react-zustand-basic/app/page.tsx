@@ -1,8 +1,9 @@
 'use client'
+
 import { useCounterStore } from '@/store/counter'
 
 export default function Home() {
-  const { count, increment, decrement } = useCounterStore()
+  const { count, increment, decrement, incrementAsync, loading } = useCounterStore()
 
   return (
     <main className='flex min-h-screen flex-col items-center justify-center p-24'>
@@ -21,6 +22,13 @@ export default function Home() {
             className='px-4 py-2 bg-green-500 text-white rounded'
           >
             +1
+          </button>
+          <button
+            onClick={incrementAsync}
+            disabled={loading}
+            className='px-4 py-2 bg-blue-500 text-white rounded disabled:opacity-50'
+          >
+            {loading ? 'Loading...' : '+1 Async'}
           </button>
         </div>
       </div>
