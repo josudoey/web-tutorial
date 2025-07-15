@@ -1,12 +1,18 @@
 'use client'
 
 import { useAppDispatch, useAppSelector } from '@/store/hooks'
-import { increment, decrement, incrementAsync } from '@/store/counter/slice'
+import {
+  decrement,
+  increment,
+  incrementAsync,
+  selectCount,
+  selectStatus
+} from '@/store/counter/slice'
 
 export default function Home() {
-  const count = useAppSelector((state) => state.counter.value)
-  const status = useAppSelector((state) => state.counter.status)
   const dispatch = useAppDispatch()
+  const count = useAppSelector(selectCount)
+  const status = useAppSelector(selectStatus)
 
   return (
     <main className='flex min-h-screen flex-col items-center justify-center p-24'>
