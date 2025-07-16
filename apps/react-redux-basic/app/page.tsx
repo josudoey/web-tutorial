@@ -7,7 +7,7 @@ import {
   incrementAsync,
   selectCount,
   selectStatus
-} from '@/store/counter/slice'
+} from './slice'
 
 export default function Home() {
   const dispatch = useAppDispatch()

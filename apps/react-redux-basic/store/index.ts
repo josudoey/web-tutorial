@@ -1,8 +1,14 @@
 import type { Action, ThunkAction } from '@reduxjs/toolkit'
 import { combineSlices, configureStore } from '@reduxjs/toolkit'
-import { counterSlice } from '@/store/counter/slice'
+import { asyncThunkCreator, buildCreateSlice } from '@reduxjs/toolkit'
 
-const rootReducer = combineSlices(counterSlice).withLazyLoadedSlices()
+export const createAppSlice = buildCreateSlice({
+  creators: {
+    asyncThunk: asyncThunkCreator
+  }
+})
+
+export const rootReducer = combineSlices({}).withLazyLoadedSlices()
 export type RootState = ReturnType<typeof rootReducer>
 
 export const makeStore = () => {

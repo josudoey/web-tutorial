@@ -1,5 +1,6 @@
-import { createAppSlice } from '@/store/createAppSlice'
+import { createAppSlice } from '@/store'
 import type { PayloadAction } from '@reduxjs/toolkit'
+import { rootReducer } from '@/store'
 
 export interface CounterSliceState {
   value: number
@@ -53,7 +54,9 @@ export const counterSlice = createAppSlice({
   }
 })
 
-export const { increment, decrement, incrementByAmount, incrementAsync } =
-  counterSlice.actions
+const injectedCounterSlice = counterSlice.injectInto(rootReducer)
 
-export const { selectCount, selectStatus } = counterSlice.selectors
+export const { increment, decrement, incrementByAmount, incrementAsync } =
+  injectedCounterSlice.actions
+
+export const { selectCount, selectStatus } = injectedCounterSlice.selectors
