@@ -12,7 +12,7 @@ const initialState: CounterSliceState = {
   status: 'idle'
 }
 
-export const counterSlice = createAppSlice({
+export const slice = createAppSlice({
   name: 'counter',
   initialState,
   reducers: (create) => ({
@@ -52,11 +52,9 @@ export const counterSlice = createAppSlice({
     selectCount: (counter) => counter.value,
     selectStatus: (counter) => counter.status
   }
-})
-
-const injectedCounterSlice = counterSlice.injectInto(rootReducer)
+}).injectInto(rootReducer)
 
 export const { increment, decrement, incrementByAmount, incrementAsync } =
-  injectedCounterSlice.actions
+  slice.actions
 
-export const { selectCount, selectStatus } = injectedCounterSlice.selectors
+export const { selectCount, selectStatus } = slice.selectors
