@@ -9,8 +9,6 @@ const compat = new FlatCompat({
   baseDirectory: __dirname
 })
 
-const eslintConfig = [
-  ...compat.extends('standard', 'prettier', 'next/typescript')
-]
+const eslintConfig = [...compat.extends('standard', 'prettier')]
 
 export default eslintConfig
