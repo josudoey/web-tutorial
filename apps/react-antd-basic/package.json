@@ -1,5 +1,5 @@
 {
-  "name": "react-basic",
+  "name": "react-antd-basic",
   "version": "0.1.0",
   "private": true,
   "prettier": "prettier-config-standard",
