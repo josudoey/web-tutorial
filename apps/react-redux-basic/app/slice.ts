@@ -1,16 +1,24 @@
-import { createAppSlice } from '@/store'
-import type { PayloadAction } from '@reduxjs/toolkit'
-import { rootReducer } from '@/store'
+import { createAppSlice, rootReducer } from '@/store'
+import { createEntityAdapter, type PayloadAction } from '@reduxjs/toolkit'
 
-export interface CounterSliceState {
+interface Counter {
+  id: string
   value: number
+}
+
+const counterAdapter = createEntityAdapter<Counter>()
+interface CounterSliceState
+  extends ReturnType<typeof counterAdapter.getInitialState> {
   status: 'idle' | 'loading' | 'failed'
 }
 
-const initialState: CounterSliceState = {
-  value: 0,
+const initialState: CounterSliceState = counterAdapter.getInitialState({
+  ids: ['default'],
+  entities: {
+    default: { id: 'default', value: 0 }
+  },
   status: 'idle'
-}
+})
 
 export const slice = createAppSlice({
   name: 'counter',
@@ -18,14 +26,29 @@ export const slice = createAppSlice({
   reducers: (create) => {
     return {
       increment: create.reducer((state) => {
-        state.value += 1
+        const counter = state.entities.default
+        if (!counter) return
+        counterAdapter.updateOne(state, {
+          id: 'default',
+          changes: { value: counter.value + 1 }
+        })
       }),
       decrement: create.reducer((state) => {
-        state.value -= 1
+        const counter = state.entities.default
+        if (!counter) return
+        counterAdapter.updateOne(state, {
+          id: 'default',
+          changes: { value: counter.value - 1 }
+        })
       }),
       incrementByAmount: create.reducer(
         (state, action: PayloadAction<number>) => {
-          state.value += action.payload
+          const counter = state.entities.default
+          if (!counter) return
+          counterAdapter.updateOne(state, {
+            id: 'default',
+            changes: { value: counter.value + action.payload }
+          })
         }
       ),
       incrementAsync: create.asyncThunk(
@@ -41,7 +64,12 @@ export const slice = createAppSlice({
           },
           fulfilled: (state, action) => {
             state.status = 'idle'
-            state.value += action.payload
+            const counter = state.entities.default
+            if (!counter) return
+            counterAdapter.updateOne(state, {
+              id: 'default',
+              changes: { value: counter.value + action.payload }
+            })
           },
           rejected: (state) => {
             state.status = 'failed'
@@ -51,7 +79,7 @@ export const slice = createAppSlice({
     }
   },
   selectors: {
-    selectCount: (counter) => counter.value,
+    selectCount: (counter) => counter.entities.default?.value ?? 0,
     selectStatus: (counter) => counter.status
   }
 }).injectInto(rootReducer)
