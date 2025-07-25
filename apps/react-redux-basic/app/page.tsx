@@ -5,13 +5,15 @@ import {
   decrement,
   increment,
   incrementAsync,
-  selectCount,
+  selectCounterById,
+  selectDefaultCount,
   selectStatus
 } from './slice'
 
 export default function Home() {
   const dispatch = useAppDispatch()
-  const count = useAppSelector(selectCount)
+  const count = useAppSelector(selectDefaultCount)
+  const defaultCounter = useAppSelector(selectCounterById('default'))
   const status = useAppSelector(selectStatus)
 
   return (
@@ -25,7 +27,7 @@ export default function Home() {
           >
             -1
           </button>
-          <span className='text-2xl'>{count}</span>
+          <span className='text-2xl'>{defaultCounter.value}</span>
           <button
             onClick={() => dispatch(increment())}
             className='px-4 py-2 bg-green-500 text-white rounded'

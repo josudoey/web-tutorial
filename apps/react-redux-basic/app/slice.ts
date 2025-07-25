@@ -1,5 +1,9 @@
 import { createAppSlice, rootReducer } from '@/store'
-import { createEntityAdapter, type PayloadAction } from '@reduxjs/toolkit'
+import {
+  createEntityAdapter,
+  createSelector,
+  type PayloadAction
+} from '@reduxjs/toolkit'
 
 interface Counter {
   id: string
@@ -19,6 +23,10 @@ const initialState: CounterSliceState = counterAdapter.getInitialState({
   },
   status: 'idle'
 })
+
+interface LazyLoadedRootState {
+  counter?: CounterSliceState
+}
 
 export const slice = createAppSlice({
   name: 'counter',
@@ -79,12 +87,20 @@ export const slice = createAppSlice({
     }
   },
   selectors: {
-    selectCount: (counter) => counter.entities.default?.value ?? 0,
-    selectStatus: (counter) => counter.status
+    selectCounterSlice: (state) => state,
+    selectDefaultCount: (state) => state.entities.default?.value ?? 0,
+    selectStatus: (state) => state.status
   }
 }).injectInto(rootReducer)
 
 export const { increment, decrement, incrementByAmount, incrementAsync } =
   slice.actions
 
-export const { selectCount, selectStatus } = slice.selectors
+export const { selectDefaultCount, selectStatus } = slice.selectors
+
+export function selectCounterById(id: string) {
+  return createSelector(
+    [slice.selectors.selectCounterSlice, () => id],
+    (state) => state.entities[id]
+  )
+}
