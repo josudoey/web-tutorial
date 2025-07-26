@@ -35,3 +35,5 @@ pnpm monorepo with React tutorial projects:
 - Be concise and to the point
 - Avoid ambiguity
 - Reduce redundancy
+- Favor early returns
+
