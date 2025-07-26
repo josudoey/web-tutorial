@@ -4,7 +4,14 @@ export default function Home() {
       <main className='flex flex-col gap-[32px] row-start-2 items-center sm:items-start'>
         {/* see https://nextjs.org/docs/app/getting-started/fonts */}
         <div className='font-[family-name:var(--font-geist-mono)]'>
-          Hello World
+          <ul>
+            <li>
+              <a href='/example/use-callback'>useCallback</a>
+            </li>
+            <li>
+              <a href='/example/use-memo'>useMemo</a>
+            </li>
+          </ul>
         </div>
       </main>
       <footer className='row-start-3 flex gap-[24px] flex-wrap items-center justify-center'></footer>
