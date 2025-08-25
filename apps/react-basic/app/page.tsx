@@ -6,6 +6,9 @@ export default function Home() {
         <div className='font-[family-name:var(--font-geist-mono)]'>
           <ul>
             <li>
+              <a href='/example/media-record'>mediaRecord</a>
+            </li>
+            <li>
               <a href='/example/use-callback'>useCallback</a>
             </li>
             <li>
