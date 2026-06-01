@@ -1,0 +1,15 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AuthReact from '../components/AuthReact';
+---
+
+<Layout title="Astro React Clerk Demo">
+	<main style="margin: auto; padding: 1rem; width: 800px; max-width: calc(100% - 2rem); font-size: 20px; line-height: 1.6; font-family: system-ui, sans-serif;">
+		<h1>Welcome to <span style="color: #6366f1;">Astro</span> + React + Clerk</h1>
+		<p>
+			This is a demonstration of how to integrate Clerk for authentication in an Astro project using React components.
+		</p>
+		
+		<AuthReact client:load />
+	</main>
+</Layout>
